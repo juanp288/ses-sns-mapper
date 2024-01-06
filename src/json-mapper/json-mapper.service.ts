@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { JsonToMapperDto } from './dto/create-json-mapper.dto';
-import { mapJson as Mapper } from './helpers/json.mapper';
+import { ImplJsonMapper } from './helpers/json-mapper.helper';
 
 @Injectable()
 export class JsonMapperService {
-  private readonly mapperFunction = Mapper;
+  constructor(private readonly jsomMapper: ImplJsonMapper) {}
 
   getMapperStruct(data: JsonToMapperDto) {
-    return this.mapperFunction(data);
+    return this.jsomMapper.mapJson(data);
   }
 }
