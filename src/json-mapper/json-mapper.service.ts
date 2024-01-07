@@ -4,9 +4,9 @@ import { ImplJsonMapper } from './helpers/json-mapper.helper';
 
 @Injectable()
 export class JsonMapperService {
-  constructor(private readonly jsomMapper: ImplJsonMapper) {}
+  constructor(private readonly jsonMapper: ImplJsonMapper) {}
 
   getMapperStruct(data: JsonToMapperDto) {
-    return this.jsomMapper.mapJson(data);
+    return this.jsonMapper.mapJson(data);
   }
 }
